@@ -1,0 +1,64 @@
+-Head and tail of the dataset
+def head_tail(df):
+    for i in (df.head(), df.tail()):
+        display(i)
+
+
+-Summary Statastics of Num & cat variables
+def display_summary_statistics(df):
+    # Calculate summary statistics for numerical features
+    numerical_stats = df.describe(include=[np.number]).T
+
+    # Calculate summary statistics for categorical features
+    categorical_stats = df.describe(include=[object]).T
+
+    # Display summary statistics for numerical features
+    print("Summary Statistics for Numerical Features:")
+    display(numerical_stats)
+
+    # Display summary statistics for categorical features
+    print("\nSummary Statistics for Categorical Features:")
+    display(categorical_stats)
+display_summary_statistics(df)
+
+
+
+
+
+-Scrolling Html table
+def create_scrollable_html_table(df):
+    # Generate the HTML table representation of the DataFrame
+    table_html = df.to_html()
+
+    # Wrap the table in a div with CSS style for scrolling
+    scrollable_table = f'<div style="overflow-y: scroll; max-height: 300px;">{table_html}</div>'
+
+    # Display the scrollable HTML table using display(HTML())
+    display(HTML(scrollable_table))
+    
+#Coll Fn xD
+
+
+
+
+-Null Percentage
+def calculate_null_percentage(df):
+    total_rows = df.shape[0]
+    null_counts = df.isnull().sum()
+    null_percentages = (null_counts / total_rows) * 100
+
+    null_data = pd.DataFrame({'Null Count': null_counts, 'Null Percentage': null_percentages})
+    null_data.sort_values(by='Null Count', ascending=False, inplace=True)
+
+    # Generate the HTML table representation
+    null_data_html = null_data.to_html()
+
+    # Display the scrollable HTML table
+    create_scrollable_html_table(null_data)
+
+calculate_null_percentage(df)
+
+
+
+
+-
