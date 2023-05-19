@@ -4,7 +4,7 @@ This repository contains the exploratory data analysis (EDA) code for the flight
 
 ## Dataset
 
-The dataset used for this project is available in the `data` directory. It consists of historical flight data, including features such as airline, source, destination, duration, and additional information.
+The dataset used for this project is available in the `data` repo. It consists of historical flight data, including features such as airline, source, destination, duration, and additional information.
 
 ## Exploratory Data Analysis
 
